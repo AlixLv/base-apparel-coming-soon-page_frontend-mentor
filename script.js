@@ -1,50 +1,62 @@
-// version mobile est version initiale ne nécessitant pas de modifications
-
-let imgMobile = document.getElementById("img");
-console.log(imgMobile);
-
-let screenWidth = window.innerWidth;
-console.log(screenWidth)
-console.log(`coucou ${screenWidth}`);
-
-let originalWidth = true;
+let emailInput = document.getElementById("email");
+console.log(emailInput);
 
 let button = document.getElementById("svg");
 console.log(button);
 
+let errorMessage = document.getElementById("errormessage");
+console.log(errorMessage)
 
-// version laptop et desktop : changement de l'image
-window.addEventListener("window.innerWidth", () => {
-    console.log('coucou');
-    if (window.innerWidth >= 769 && originalWidth === true) {
-        console.log("premier if")
-        imgMobile.src = "base-apparel-coming-soon-master/images/hero-desktop.jpg";
-        originalWidth = false;
-        console.log(originalWidth);
-    }
-    if (originalWidth === false && window.innerWidth < 769) {
-        console.log("deuxième if")
-        imgMobile.src = "base-apparel-coming-soon-master/images/hero-mobile.jpg";
-        originalWidth = true;
+let ctaDiv = document.getElementById("cta");
+
+let errorImage = document.createElement("img");
+errorImage.src = 'base-apparel-coming-soon-master/images/icon-error.svg';
+console.log(`errorImage = ${errorImage}`);
+
+//vérifier qu'il y a une valeur entrée dans l'input
+//supprimer les espaces dans l'input
+// vérifier que la valeur correspond à une adresse email
+// si email invalide -> modification CSS + message d'alerte en-dessous de l'input
+// si email valide -> le récupérer dans une variable en JS
+
+function verifyInputIsFilled(emailInput){
+    console.log(emailInput.value);
+
+    let value = emailInput.value.trim()
+    console.log(`value = ${value}`);
+        if (value) {
+            // input.dataset.state = 'valid';
+            console.log("valid input filled");
+            return value;
+        } else {
+            // input.dataset.state = 'invalid';
+            console.log("invalid empty input");
+        }
+}
+
+function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+function invalidEmail(){
+    emailInput.value = "";
+    emailInput.style.backgroundColor = "hsl(0, 93%, 68%)";
+    errorMessage.innerText = "Please enter a valid email";
+    ctaDiv.appendChild(errorImage);
+    // positionner dynamiquement l'image dans la div!!
+    errorImage.animate({transform:'translate(0%)'}, {duration: 1000, fill:'forwards'});
+}
+
+button.addEventListener("click", () => {
+    console.log("coucou");
+    valueTrimmed = verifyInputIsFilled(emailInput);
+    console.log(`valueTrimmed = ${valueTrimmed}`);
+    emailValidation = validateEmail(valueTrimmed);
+    console.log(`emailValidation = ${emailValidation}`);
+
+    if (emailValidation === false){
+        console.log("je suis dans le if false")
+        invalidEmail();
     }
 })
-
-//   if (screenWidth >= 769) {
-//         console.log("premier if")
-//         imgMobile.src = "base-apparel-coming-soon-master/images/hero-desktop.jpg";
-//         console.log(originalWidth);
-//     }
-//  if (screenWidth < 769) {
-//         console.log("deuxième if")
-//         imgMobile.src = "base-apparel-coming-soon-master/images/hero-mobile.jpg";
-//     }
-
-
-// button.addEventListener("onclick", () => {
-//     // si l'input est rempli et s'il remplit les conditions d'adresse mail valide alors on envoie 
-//     // si l'input n'est pas rempli OU si adresse mail invalide alors 
-//     // - faire apparaître message erreur, 
-//     // - faire apparaître image ! d'erreur,
-//     // - bordure rouge autour de l'input
-// }
-// )
