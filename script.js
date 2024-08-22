@@ -9,15 +9,7 @@ console.log(errorMessage)
 
 let ctaDiv = document.getElementById("cta");
 
-let errorImage = document.createElement("img");
-errorImage.src = 'base-apparel-coming-soon-master/images/icon-error.svg';
-console.log(`errorImage = ${errorImage}`);
 
-//vérifier qu'il y a une valeur entrée dans l'input
-//supprimer les espaces dans l'input
-// vérifier que la valeur correspond à une adresse email
-// si email invalide -> modification CSS + message d'alerte en-dessous de l'input
-// si email valide -> le récupérer dans une variable en JS
 
 function verifyInputIsFilled(emailInput){
     console.log(emailInput.value);
@@ -29,8 +21,8 @@ function verifyInputIsFilled(emailInput){
             console.log("valid input filled");
             return value;
         } else {
-            // input.dataset.state = 'invalid';
             console.log("invalid empty input");
+            return false;
         }
 }
 
@@ -40,23 +32,53 @@ function validateEmail(email) {
 }
 
 function invalidEmail(){
+    let errorImage = document.createElement("img");
+    errorImage.src = 'base-apparel-coming-soon-master/images/icon-error.svg';
+    errorImage.id = "errorImg";
+    console.log(`errorImage = ${errorImage}`);
     emailInput.value = "";
-    emailInput.style.backgroundColor = "hsl(0, 93%, 68%)";
+    emailInput.style.border = "1px solid hsl(0, 93%, 68%)";
     errorMessage.innerText = "Please enter a valid email";
     ctaDiv.appendChild(errorImage);
-    // positionner dynamiquement l'image dans la div!!
-    errorImage.animate({transform:'translate(0%)'}, {duration: 1000, fill:'forwards'});
 }
+
 
 button.addEventListener("click", () => {
     console.log("coucou");
-    valueTrimmed = verifyInputIsFilled(emailInput);
-    console.log(`valueTrimmed = ${valueTrimmed}`);
-    emailValidation = validateEmail(valueTrimmed);
+    inputValue = verifyInputIsFilled(emailInput);
+    console.log(`valueTrimmed = ${inputValue}`);
+    emailValidation = validateEmail(inputValue);
     console.log(`emailValidation = ${emailValidation}`);
 
     if (emailValidation === false){
         console.log("je suis dans le if false")
         invalidEmail();
+        verifyInputIsFilled(emailInput);
+        validateEmail(valueTrimmed);
+    }
+    else if (emailValidation === true){
+        newEmail = emailInput.value;
+        console.log(`newEmail = ${newEmail}`);
+        console.log("je suis dans le if true");
     }
 })
+
+// je tappe mon email,
+// il est vérifié par verifyInputIsFilled et stocké dans valueTrimmed
+// puis il vérifié par validateEmail
+
+// s'il est invalide :
+// je retappe mon email,
+// il est vérifié par verifyInputIsFilled
+
+// Tant que inputValue est égale à false,
+// je lance verifyInputIsFilled
+
+// si inputValue est différente de false 
+// alors je lance validateEmail
+
+// si validateEmail retourne true alors 
+// je stocke l'email dans la variable newEmail
+
+// si validateEmail retourne false
+// Tant que validateEmail retourne false je lance validateEMail

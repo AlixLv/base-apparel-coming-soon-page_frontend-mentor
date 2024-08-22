@@ -114,6 +114,12 @@ h1>nav:first-child {
     font-size: 12px;
 }
 
+#errorImg {
+    position: absolute;
+    left: 30vw;
+    top: 66vh;
+}
+
 
 @media (min-width:769px) {
 body {
