@@ -29,16 +29,16 @@ function validateEmail(email) {
 }
 
 function invalidEmail(){
-    let errorImage = document.createElement("img");
-    errorImage.src = 'base-apparel-coming-soon-master/images/icon-error.svg';
-    errorImage.id = "errorImg";
-    console.log(`errorImage = ${errorImage}`);
+    // let errorImage = document.createElement("img");
+    // errorImage.src = 'base-apparel-coming-soon-master/images/icon-error.svg';
+    // errorImage.id = "errorImg";
+    // console.log(`errorImage = ${errorImage}`);
     emailInput.value = "";
     emailInput.style.border = "1px solid hsl(0, 93%, 68%)";
     let errorMessage = document.getElementById("errormessage");
     console.log(errorMessage)
-    errorMessage.innerText = "Please enter a valid email";
-    ctaDiv.appendChild(errorImage);
+    errorMessage.style.display ='block';
+    // ctaDiv.appendChild(errorImage);
 }
 
 
@@ -60,8 +60,8 @@ button.addEventListener("click", () => {
     }
     else if (emailValidation === true) {
         let errorMessage = document.getElementById("errormessage");
-        errorMessage.innerText = "";
-        ctaDiv.removeChild(ctaDiv.lastChild);
+        errorMessage.style.display = 'none';
+        // ctaDiv.removeChild(ctaDiv.lastChild);
         console.log(`email enregistré = ${emailValidation}`);
 
     }
