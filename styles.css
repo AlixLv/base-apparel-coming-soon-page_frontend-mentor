@@ -1,169 +1,172 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background-color:#fef8f6; 
-    font-family: Josefin Sans, Arial, Tahoma, sans-serif; 
-    font-size: 16px;
+	background-color: #fef8f6;
+	font-family: Josefin Sans, Arial, Tahoma, sans-serif;
+	font-size: 16px;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #image {
-    width: 100%;
-    height: 30vh;
-    background-image: url("base-apparel-coming-soon-master/images/hero-mobile.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+	width: 100%;
+	height: 30vh;
+	background-image: url("base-apparel-coming-soon-master/images/hero-mobile.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #logo-nav {
-    margin: 30px 0 30px 25px;
+	margin: 30px 0 30px 25px;
 }
 
 #logo-nav > img {
-    width: 35%;
+	width: 35%;
 }
 
 #info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15% 10% 15% 10%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 15% 10% 15% 10%;
 }
 
 #info > p {
-    line-height: 1.3;
-    text-align: justify;
-    font-weight: 400;
-    margin-bottom: 1.7rem;
-    color:hsl(0, 36%, 70%);
+	line-height: 1.3;
+	text-align: justify;
+	font-weight: 400;
+	margin-bottom: 1.7rem;
+	color: hsl(0, 36%, 70%);
 }
 
 h1 {
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: 0.6rem;
-    margin-bottom: 1.5rem; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	font-size: 40px;
+	font-weight: 700;
+	letter-spacing: 0.6rem;
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-h1>nav:first-child {
-    font-weight: 300;
-    color: hsl(0, 36%, 70%);
-    padding: 0;
-    margin: 0;
+h1 > nav:first-child {
+	font-weight: 300;
+	color: hsl(0, 36%, 70%);
+	padding: 0;
+	margin: 0;
 }
 
 #cta {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
 }
 
 #email {
-    padding: 1rem 1rem 1rem 2rem;
-    border: 0.7px hsl(0, 49%, 81%) solid;
-    border-radius: 100px;
-    color: hsl(0, 49%, 81%); 
-    background-color:#fef8f6;
-}  
+	padding: 1rem 1rem 1rem 2rem;
+	border: 0.7px hsl(0, 49%, 81%) solid;
+	border-radius: 100px;
+	color: hsl(0, 49%, 81%);
+	background-color: #fef8f6;
+}
 
 #email:focus {
-    border: 0.7px hsl(0, 49%, 81%) solid; 
+	border: 0.7px hsl(0, 49%, 81%) solid;
 }
-
 
 #email::placeholder {
-    color: hsl(0, 49%, 81%);
+	color: hsl(0, 49%, 81%);
 }
 
-
 #svg {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    border: none;
-    width: 5rem;
-    height: 3rem;
-    box-shadow: rgba(197, 105, 105, 0.24) 0px 5px 10px;
-    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
-    position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
+	border: none;
+	width: 5rem;
+	height: 3rem;
+	box-shadow: rgba(197, 105, 105, 0.24) 0px 5px 10px;
+	background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+	position: absolute;
 }
 
 #errormessage {
-    width: 40%;
-    height: 1rem;
-    align-self: center;
-    padding-top: 1rem;
-    color: hsl(0, 93%, 68%);
-    font-size: 12px;
-    display: none;
+	width: 40%;
+	height: 1rem;
+	align-self: center;
+	padding-top: 1rem;
+	color: hsl(0, 93%, 68%);
+	font-size: 12px;
+	display: none;
 }
 
-
-
-@media (min-width:769px) {
-body {
-    background-image: url("base-apparel-coming-soon-master/images/bg-pattern-desktop.svg");
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
 }
 
-    #container {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: row-reverse;
-        flex: 1;
-    }
+@media (min-width: 769px) {
+	body {
+		background-image: url("base-apparel-coming-soon-master/images/bg-pattern-desktop.svg");
+	}
 
-    #logo-nav {
-        width: 30%;
-        position: absolute;
-        top: 3vh;
-        left: 7vw;
-    }
+	#container {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: row-reverse;
+		flex: 1;
+	}
 
-    #image {
-        width: 100%;
-        height: 100%;
-        background-image: url("base-apparel-coming-soon-master/images/hero-desktop.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+	#logo-nav {
+		width: 30%;
+		position: absolute;
+		top: 3vh;
+		left: 7vw;
+	}
 
-   #info-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin: 15% 10% 15% 10%;
-    }
+	#image {
+		width: 100%;
+		height: 100%;
+		background-image: url("base-apparel-coming-soon-master/images/hero-desktop.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 
-    h1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+	#info-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		margin: 15% 10% 15% 10%;
+	}
 
-    #info > p {
-        width: 90%;
-        line-height: 1.5;
-        text-align: left;
-        margin-bottom: 3rem;
-        }
+	h1 {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	#info > p {
+		width: 90%;
+		line-height: 1.5;
+		text-align: left;
+		margin-bottom: 3rem;
+	}
 }
